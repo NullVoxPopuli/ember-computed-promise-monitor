@@ -1,7 +1,7 @@
 ember-computed-promise-monitor [![Build Status](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor.svg?branch=master)](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor)
 ==============================================================================
 
-This provides the ability to manage async behavior with computed properties as a light-weight alternative to, or in conjection with [ember-concurrency](http://ember-concurrency.com/). 
+This provides the ability to manage async behavior with computed properties as a light-weight alternative to, or in conjunction with [ember-concurrency](http://ember-concurrency.com/). 
 
 
 Installation
