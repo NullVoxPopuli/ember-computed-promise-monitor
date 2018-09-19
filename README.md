@@ -19,7 +19,7 @@ Usage
 import Component from '@ember/component';
 import { PromiseMonitor } from 'ember-computed-promise-monitor';
 
-export default class extends Component {
+export default class MyComponent extends Component {
   postName() {
     const promise: Promise<string> = new Promise(async (resolve /*, reject */) => {
       const record = await this.store.findRecord('post', this.someId);
