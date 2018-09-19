@@ -1,3 +1,9 @@
 <h2 id="title">Welcome to Ember</h2>
 
-{{outlet}}
+<div data-test-success>
+  {{foo-component makeFail=false}}
+</div>
+
+<div data-test-failure>
+  {{foo-component makeFail=true}}
+</div>
