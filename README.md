@@ -1,7 +1,8 @@
-ember-computed-promise-monitor
+ember-computed-promise-monitor [![Build Status](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor.svg?branch=master)](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor)
 ==============================================================================
 
-[Short description of the addon.]
+This provides the ability to manage async behavior with computed properties as a light-weight alternative to, or in conjection with [ember-concurrency](http://ember-concurrency.com/). 
+
 
 Installation
 ------------------------------------------------------------------------------
@@ -14,7 +15,31 @@ ember install ember-computed-promise-monitor
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+```ts
+import Component from '@ember/component';
+import { PromiseMonitor } from 'ember-computed-promise-monitor';
+
+export default class extends Component {
+  postName() {
+    const promise: Promise<string> = new Promise(async (resolve /*, reject */) => {
+      const record = await this.store.findRecord('post', this.someId);
+
+      resolve(record.name);
+    });
+
+    return new PromiseMonitor<string>(promise);
+  }
+}
+```
+
+```hbs
+{{#if postName.isPending}}
+  Loading...
+{{else}}
+  {{postName.result}}
+{{/if}}
+```
+
 
 
 Contributing
