@@ -1,4 +1,5 @@
-ember-computed-promise-monitor [![Build Status](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor.svg?branch=master)](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor)
+ember-computed-promise-monitor [![Build Status](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor.svg?branch=master)](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor) [![Ember Observer Score](https://emberobserver.com/badges/ember-computed-promise-monitor.svg)](https://emberobserver.com/addons/ember-computed-promise-monitor)
+
 ==============================================================================
 
 This provides the ability to manage async behavior with computed properties as a light-weight alternative to, or in conjunction with [ember-concurrency](http://ember-concurrency.com/). 
