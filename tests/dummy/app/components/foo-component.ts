@@ -11,8 +11,8 @@ export default class FooComponent extends Component {
   // NOTE: this computed property has no dependent keys,
   //       and the problem with computed properties with promises
   //       in general is that the state of the promise is not a
-  //       dependent property, therefor when the state changes, this 
-  //       property would not update. 
+  //       dependent property, therefor when the state changes, this
+  //       property would not update.
   //       *This* is why we need the promise monitor.
   promiseComputed = computed(function() {
     return this.makePromise();

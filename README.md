@@ -2,7 +2,7 @@ ember-computed-promise-monitor [![Build Status](https://travis-ci.com/NullVoxPop
 
 ==============================================================================
 
-This provides the ability to manage async behavior with computed properties as a light-weight alternative to, or in conjunction with [ember-concurrency](http://ember-concurrency.com/). 
+This provides the ability to manage async behavior with computed properties as a light-weight alternative to, or in conjunction with [ember-concurrency](http://ember-concurrency.com/).
 
 
 Installation
@@ -40,6 +40,38 @@ export default class MyComponent extends Component {
   {{postName.result}}
 {{/if}}
 ```
+
+------------------------------------------
+
+**How is this different from PromiseProxy?**
+
+You can get similar functionality by using [PromiseProxyMixin](https://www.emberjs.com/api/ember/release/classes/PromiseProxyMixin):
+
+```js
+import { resolve } from 'rsvp';
+import ObjectProxy from '@ember/object/proxy';
+import PromiseProxyMixin from '@ember/object/promise-proxy-mixin';
+
+let ObjectPromiseProxy = ObjectProxy.extend(PromiseProxyMixin);
+
+let proxy = ObjectPromiseProxy.create({
+  promise: somePromise.then(data => ({ result: data }))
+});
+```
+
+```hbs
+{{#if postName.isPending}}
+  Loading...
+{{else}}
+  {{postName.result}}
+{{/if}}
+```
+
+The key differences are that the `PromiseProxyMixin`:
+ - proxies all properties to the resolved value
+ - uses `content` for the resulting value, which may be confusing (and is undocumented)
+ - throws an exception on promise rejection. `PromiseMonitor` sets the error on the `result` property.
+
 
 
 

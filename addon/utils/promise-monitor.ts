@@ -1,4 +1,27 @@
-import { set } from '@ember/object';
+import { set } from "@ember/object";
+
+// import { computed } from '@ember/object';
+//
+// // Disabled for now, but maybe using this would provide a simpler implementation?
+// // not sure if people would actually want the proxy-functionality of this
+// // implementation
+// //
+// // Also, In order to use this, I'd need to find a way to catch exceptions
+// // on rejected promises...
+// import ObjectProxy from '@ember/object/proxy';
+// import PromiseProxyMixin from '@ember/object/promise-proxy-mixin';
+//
+// const ObjectPromiseProxy = ObjectProxy.extend(PromiseProxyMixin);
+//
+// export default class PromiseMonitor<T> extends ObjectPromiseProxy {
+//   constructor(promise: Promise<T>) {
+//     super({ promise });
+//   }
+//
+//   result = computed('content', 'reason', function() {
+//     return this.reason || this.content;
+//   });
+// }
 
 export default class PromiseMonitor<T> {
   isRejected = false;
