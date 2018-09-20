@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import { PromiseMonitor } from 'dummy/utils/promise-monitor';
+import { PromiseMonitor } from 'ember-computed-promise-monitor';
 
 export default class FooComponent extends Component {
   // arguments
