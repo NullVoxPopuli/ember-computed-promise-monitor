@@ -72,7 +72,20 @@ The key differences are that the `PromiseProxyMixin`:
  - throws an exception on promise rejection. `PromiseMonitor` sets the error on the `result` property.
 
 
+**When would it make sense to use this over ember-concurrency?**
 
+```ts
+  @computed('identity.privateKey', 'identity.publicKey')
+  get downloadUrl() {
+    const promise = this.buildData();
+
+    return new PromiseMonitor(promise);
+  }
+```
+
+the equivelant behavior in `ember-concurrency` would be:
+
+// TODO: write this out
 
 Contributing
 ------------------------------------------------------------------------------
