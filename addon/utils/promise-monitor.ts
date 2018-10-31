@@ -17,9 +17,8 @@ import { set } from "@ember/object";
 //   constructor(promise: Promise<T>) {
 //     super({ promise });
 //   }
-
+//
 //   result = computed('content', 'reason', function() {
-//     console.log(this.reason);
 //     return this.reason || this.content;
 //   });
 // }
