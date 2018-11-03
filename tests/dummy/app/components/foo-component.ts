@@ -22,6 +22,7 @@ export default class FooComponent extends Component {
   isRejected = reads('promiseComputed.isRejected');
   isFulfilled = reads('promiseComputed.isFulfilled');
   result = reads('promiseComputed.result');
+  error = reads('promiseComputed.error');
 
   makePromise() {
     const promise = new Promise<string>((resolve, reject) => {

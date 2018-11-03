@@ -1,7 +1,7 @@
 import { set } from "@ember/object";
 
-// import { computed } from '@ember/object';
-//
+// // import { computed } from '@ember/object';
+
 // // Disabled for now, but maybe using this would provide a simpler implementation?
 // // not sure if people would actually want the proxy-functionality of this
 // // implementation
@@ -27,7 +27,8 @@ export default class PromiseMonitor<T> {
   isRejected = false;
   isFulfilled = false;
   isPending = true;
-  result: T | Error | undefined;
+  result?: T;
+  error?: Error;
 
   private promise!: Promise<T>;
 
@@ -50,12 +51,12 @@ export default class PromiseMonitor<T> {
   private didFulfill(result: T) {
     set(this, 'isPending', false);
     set(this, 'isFulfilled', true);
-    set(this, 'result', result);
+    set(this, 'result', result as any);
   }
 
   private didReject(error: Error) {
     set(this, 'isPending', false);
     set(this, 'isRejected', true);
-    set(this, 'result', error);
+    set(this, 'error', error);
   }
 }

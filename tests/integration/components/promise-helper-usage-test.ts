@@ -19,6 +19,10 @@ function result(element: Element) {
   return element.querySelector('[data-test-result]')!.textContent!.trim();
 }
 
+function error(element: Element) {
+  return element.querySelector('[data-test-error]')!.textContent!.trim();
+}
+
 module('Integration | Component | foo-component', function(hooks) {
   setupRenderingTest(hooks);
 
@@ -35,6 +39,7 @@ module('Integration | Component | foo-component', function(hooks) {
     assert.equal(rejected(this.element), 'false', 'is not rejected');
     assert.equal(pending(this.element), 'false', 'is not pending');
     assert.equal(result(this.element), 'success');
+    assert.equal(error(this.element), '', 'has no error');
   });
 
   test('has failed', async function(assert) {
@@ -43,7 +48,9 @@ module('Integration | Component | foo-component', function(hooks) {
     assert.equal(fulfilled(this.element), 'false', 'is not fulfilled');
     assert.equal(rejected(this.element), 'true', 'is rejected');
     assert.equal(pending(this.element), 'false', 'is not pending');
-    assert.equal(result(this.element), 'failed');
+    assert.equal(result(this.element), '', 'has no result');
+    assert.equal(error(this.element), 'failed', 'has errored');
+
   });
 
   test('is pending', async function(assert) {
@@ -53,5 +60,7 @@ module('Integration | Component | foo-component', function(hooks) {
     assert.equal(rejected(this.element), 'false', 'is not rejected');
     assert.equal(pending(this.element), 'true', 'is pending');
     assert.equal(result(this.element), '');
+    assert.equal(error(this.element), '');
+
   });
 });
