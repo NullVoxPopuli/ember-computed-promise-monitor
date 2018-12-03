@@ -18,8 +18,17 @@ Usage
 ```ts
 import Component from '@ember/component';
 import { PromiseMonitor } from 'ember-computed-promise-monitor';
+import { reads } from '@ember-decorators/object/computed';
 
 export default class MyComponent extends Component {
+  // all the properties on the PromiseMonitor can be dependent keys of
+  // other computed properties
+  @reads('postName.isFulfilled') didSucceed;
+  @reads('postName.isRejected') didFail;
+  @reads('postName.isPending') isPending;
+  @reads('postName.error') postNameError;
+  @reads('postName.result') theNameOfThePost;
+  
   postName() {
     const promise: Promise<string> = new Promise(async (resolve /*, reject */) => {
       const record = await this.store.findRecord('post', this.someId);
