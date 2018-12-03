@@ -78,7 +78,7 @@ let proxy = ObjectPromiseProxy.create({
 The key differences are that the `PromiseProxyMixin`:
  - proxies all properties to the resolved value
  - uses `content` for the resulting value, which may be confusing (and is undocumented)
- - throws an exception on promise rejection. `PromiseMonitor` sets the error on the `result` property.
+ - throws an exception on promise rejection. `PromiseMonitor` sets the error on the `error` property.
 
 
 
