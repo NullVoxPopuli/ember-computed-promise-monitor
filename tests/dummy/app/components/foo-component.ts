@@ -3,10 +3,10 @@ import { computed } from '@ember/object';
 import { reads } from '@ember/object/computed';
 import { PromiseMonitor } from 'ember-computed-promise-monitor';
 
-export default class FooComponent extends Component {
+export default Component.extend({
   // arguments
-  makeFail?: boolean;
-  neverFulfills?: boolean;
+  makeFail: false,
+  neverFulfills: false,
 
   // NOTE: this computed property has no dependent keys,
   //       and the problem with computed properties with promises
@@ -14,15 +14,15 @@ export default class FooComponent extends Component {
   //       dependent property, therefor when the state changes, this
   //       property would not update.
   //       *This* is why we need the promise monitor.
-  promiseComputed = computed(function() {
+  promiseComputed: computed(function() {
     return this.makePromise();
-  });
+  }),
 
-  isPending = reads('promiseComputed.isPending');
-  isRejected = reads('promiseComputed.isRejected');
-  isFulfilled = reads('promiseComputed.isFulfilled');
-  result = reads('promiseComputed.result');
-  error = reads('promiseComputed.error');
+  isPending: reads('promiseComputed.isPending'),
+  isRejected: reads('promiseComputed.isRejected'),
+  isFulfilled: reads('promiseComputed.isFulfilled'),
+  result: reads('promiseComputed.result'),
+  error: reads('promiseComputed.error'),
 
   makePromise() {
     const promise = new Promise<string>((resolve, reject) => {
@@ -40,4 +40,4 @@ export default class FooComponent extends Component {
 
     return new PromiseMonitor<string>(promise);
   }
-};
+});

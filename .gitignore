@@ -7,8 +7,10 @@
 # dependencies
 /bower_components/
 /node_modules/
+yarn.lock
 
 # misc
+/.env*
 /.sass-cache
 /connect.lock
 /coverage/
