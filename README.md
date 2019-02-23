@@ -30,11 +30,11 @@ export default class MyComponent extends Component {
   @reads('postName.result') theNameOfThePost;
   
   postName() {
-    const promise = new Promise(async (resolve /*, reject */) => {
+    const promise = (async function() {
       const record = await this.store.findRecord('post', this.someId);
 
       resolve(record.name);
-    });
+    })();
 
     return new PromiseMonitor(promise);
   }
