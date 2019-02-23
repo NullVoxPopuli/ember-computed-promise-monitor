@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import {  reads } from '@ember/object/computed';
+import { reads } from '@ember/object/computed';
 import { PromiseMonitor } from 'ember-computed-promise-monitor';
 
 export default Component.extend({
