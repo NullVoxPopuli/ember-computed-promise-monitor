@@ -37,7 +37,8 @@ export default class MyComponent extends Component {
   @reads('postName.error') postNameError;
   @reads('postName.result') theNameOfThePost;
   
-  postName() {
+  @computed()
+  get postName() {
     const promise = (async function() {
       const record = await this.store.findRecord('post', this.someId);
 
@@ -55,6 +56,22 @@ export default class MyComponent extends Component {
 {{else}}
   {{postName.result}}
 {{/if}}
+```
+
+_or with a decorator_:
+
+```ts
+import { monitor } from 'ember-computed-promise-monitor';
+
+// ...
+
+  @computed()
+  @monitor
+  get postName() {
+    return this.store
+      .findRecord('post', this.someId)
+      .then(post => post.name);
+  }
 ```
 
 ------------------------------------------
