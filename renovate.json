@@ -1,4 +1,6 @@
 {
+  "rangeStrategy": "replace",
+  "masterIssue": true,
   "extends": [
     "config:base"
   ]
