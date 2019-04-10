@@ -1,6 +1,7 @@
 {
   "rangeStrategy": "replace",
   "masterIssue": true,
+  "automerge": true,
   "extends": [
     "config:base"
   ]
