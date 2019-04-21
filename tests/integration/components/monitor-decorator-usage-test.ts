@@ -4,8 +4,7 @@ import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import { fulfilled, rejected, pending, result, error } from './helpers';
 
-
-module('Integration | Component | foo-component', function(hooks) {
+module('Integration | Component | decorator-component', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
