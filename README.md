@@ -1,3 +1,8 @@
+# Archived!
+
+This library is no longer needed in modern projects.
+For _tracking_ promise state, you may use [ember-async-data](https://github.com/tracked-tools/ember-async-data) or [trackedFunction](https://reactive.nullvoxpopuli.com/functions/function.trackedFunction.html)
+
 # ember-computed-promise-monitor
 [![Build Status](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor.svg?branch=master)](https://travis-ci.com/NullVoxPopuli/ember-computed-promise-monitor) [![Ember Observer Score](https://emberobserver.com/badges/ember-computed-promise-monitor.svg)](https://emberobserver.com/addons/ember-computed-promise-monitor)
 
